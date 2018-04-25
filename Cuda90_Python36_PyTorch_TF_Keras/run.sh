@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-. activate pythonenv
 
 if [ -z "$1" ]
   then

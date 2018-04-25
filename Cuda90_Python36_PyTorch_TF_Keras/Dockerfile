@@ -12,19 +12,21 @@ RUN apt-get install -y --no-install-recommends apt-utils
 RUN apt-get install -y --no-install-recommends git curl vim unzip wget
 
 # Build tools
-RUN apt-get install -y --no-install-recommends build-essential cmake software-properties-common
+RUN apt-get install -y --no-install-recommends build-essential cmake pkg-config software-properties-common
 
 # OpenBLAS
 RUN apt-get install -y --no-install-recommends libopenblas-dev
 
 ######################################
-# OpenCV dependencies (from scratch installation)
+# OpenCV dependencies ################
 ######################################
 
-# RUN apt-get install -y --no-install-recommends \
-#    libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev \
-#    libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libgtk2.0-dev \
-#    liblapacke-dev checkinstall
+# RUN apt install -y libsm6 libxext6
+
+RUN apt-get install -y --no-install-recommends \
+   libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev \
+   libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libgtk2.0-dev \
+   liblapacke-dev checkinstall
 
 #######################################
 # Python 3.6 ##########################
@@ -35,7 +37,7 @@ RUN apt-get update
 RUN apt-get install -y --no-install-recommends python3.6 python3.6-dev
 
 # Pip
-RUN curl https://bootstrap.pypa.io/get-pip.py | sudo python3.6
+RUN curl https://bootstrap.pypa.io/get-pip.py | python3.6
 
 RUN pip install --no-cache-dir --upgrade pip setuptools
 
@@ -98,9 +100,9 @@ RUN pip install --no-cache-dir --upgrade h5py pydot_ng keras
 
 
 #######################################
-# PyTorch 0.31 ########################
+# PyTorch 0.4.0 ########################
 #######################################
-RUN pip install http://download.pytorch.org/whl/cu90/torch-0.3.1-cp36-cp36m-linux_x86_64.whl  
+RUN pip install http://download.pytorch.org/whl/cu90/torch-0.4.0-cp36-cp36m-linux_x86_64.whl   
 RUN pip install torchvision
 
 #######################################

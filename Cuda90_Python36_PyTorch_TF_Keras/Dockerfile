@@ -34,7 +34,7 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN add-apt-repository ppa:jonathonf/python-3.6
 RUN apt-get update
-RUN apt-get install -y --no-install-recommends python3.6 python3.6-dev
+RUN apt-get install -y --no-install-recommends python3.6 python3.6-dev python3.6-distutils
 
 # Pip
 RUN curl https://bootstrap.pypa.io/get-pip.py | python3.6
@@ -106,6 +106,16 @@ RUN pip install http://download.pytorch.org/whl/cu90/torch-0.4.0-cp36-cp36m-linu
 RUN pip install torchvision
 
 #######################################
+# Visdom ##############################
+#######################################
+RUN pip install visdom
+
+#######################################
+# Screen ##############################
+#######################################
+RUN apt-get install screen
+
+#######################################
 # Cleanup #############################
 #######################################
 RUN apt-get clean && \
@@ -123,8 +133,8 @@ RUN ln -s /usr/local/cuda/lib64/libcudnn.so.5 /usr/local/cuda/lib64/libcudnn.so
 # For CUDA profiling, Tensorflow requires CUPTI
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 
-# TensorBoard
-EXPOSE 6006
+# VISDOM
+EXPOSE 8097
 # Jupyter
 EXPOSE 8888
 

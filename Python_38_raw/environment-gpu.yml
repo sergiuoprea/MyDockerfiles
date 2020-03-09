@@ -1,0 +1,10 @@
+name: py38
+channels:
+    - https://conda.anaconda.org/menpo
+    - conda-forge
+dependencies:
+    - python==3.8
+    - numpy
+    - matplotlib
+    - jupyter
+    - opencv3

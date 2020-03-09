@@ -10,10 +10,10 @@ ENV PATH $PATH:/root/miniconda3/bin/
 #RUN conda update conda -y
 
 # This is a list of packages and dependencies we need to work with. We copy the given file to the docker instance. Is a good option if we will create a conda environment
-COPY environment.yml .
+COPY dependencies.yml .
 
 # We create an environment with those dependencies called carnd-term1
-RUN conda env create -f environment.yml --name py38
+RUN conda env create -f dependencies.yml --name py38
 
 # cleanup tarballs and downloaded package files
 #RUN conda clean -tp -y

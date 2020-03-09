@@ -1,10 +1,11 @@
 name: py38
 channels:
-    - https://conda.anaconda.org/menpo
+    - defaults
     - conda-forge
 dependencies:
-    - python==3.8
+    - python=3.8
+    - opencv=4.2
+    - pip
     - numpy
     - matplotlib
     - jupyter
-    - opencv3

@@ -4,10 +4,10 @@ channels:
     - defaults
     - conda-forge
 dependencies:
+    - visdom
     - pytorch
     - torchvision
     - cudatoolkit=10.1
-    - visdom
     - python=3.8
     - opencv=4.2
     - pip

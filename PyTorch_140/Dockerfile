@@ -27,7 +27,7 @@ COPY dependencies.yml .
 RUN conda env create -f dependencies.yml --name pytorch
 
 # cleanup tarballs and downloaded package files
-RUN conda clean -tp -ya
+RUN conda clean -tp -ya 
 
 # Create and set the workdir
 RUN mkdir /src
@@ -42,4 +42,3 @@ EXPOSE 8097
 COPY run.sh /
 RUN chmod +x /run.sh
 ENTRYPOINT ["/run.sh"]
-CMD ["/bin/bash"]

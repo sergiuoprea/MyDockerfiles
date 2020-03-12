@@ -2,3 +2,5 @@
 set -e
 . activate pytorch
 
+exec "$@"
+

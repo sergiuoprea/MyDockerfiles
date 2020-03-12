@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-. activate carnd-term1
+. activate py38
 
 if [ -z "$1" ]
   then

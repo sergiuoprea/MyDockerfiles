@@ -1,0 +1,16 @@
+name: pytorch
+channels: 
+    - pytorch
+    - defaults
+    - conda-forge
+dependencies:
+    - pytorch
+    - torchvision
+    - cudatoolkit=10.1
+    - visdom
+    - python=3.8
+    - opencv=4.2
+    - pip
+    - numpy
+    - matplotlib
+    - jupyter
